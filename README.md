@@ -42,3 +42,7 @@ This project is licensed under the GPL License - see the [LICENSE](LICENSE) file
 ## Disclaimer
 
 Port scanning can be perceived as a hostile activity by network administrators. This tool is intended for educational purposes only. Always have explicit permission before scanning networks that you do not own or operate.
+
+## TODOs
+
+Check [TODOs.md](TODOs.md).

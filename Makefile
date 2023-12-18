@@ -1,12 +1,12 @@
 CC=gcc
 CFLAGS=-g -Wall -Wextra -Wpedantic
 CCLIBS=-pthread
-BINS=n00bscanner
+BIN=main
 
-all: $(BINS)
+all: $(BIN)
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $^ $(CCLIBS)
 
 clean:
-	rm -rf *.dSYM $(BINS)
+	rm -rf *.dSYM $(BIN)

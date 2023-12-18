@@ -1,26 +1,8 @@
 package main
 
 import (
-	"fmt"
-	"net"
-	"strconv"
 	"sync"
-	"time"
 )
-
-func scanPort(ip string, port int, wg *sync.WaitGroup) {
-	defer wg.Done()
-	address := ip + ":" + strconv.Itoa(port)
-	conn, err := net.DialTimeout("tcp", address, 1*time.Second)
-
-	if err != nil {
-		fmt.Printf("Port %d: Closed\n", port)
-		return
-	}
-
-	defer conn.Close()
-	fmt.Printf("Port %d: Open\n", port)
-}
 
 func main() {
 	var wg sync.WaitGroup
@@ -31,8 +13,14 @@ func main() {
 	endPort := 100          // Replace with your end port
 
 	for port := startPort; port <= endPort; port++ {
+		target := Target{
+			ip:     targetIP,
+			port:   port,
+			wg:     &wg,
+			dialer: NetDialer{},
+		}
 		wg.Add(1)
-		go scanPort(targetIP, port, &wg)
+		go target.scanPort()
 	}
 
 	// Wait for a bit to allow all goroutines to finish

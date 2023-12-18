@@ -8,11 +8,11 @@ A simple port scanner written in C++ using UNIX websockets API
 
 ## Usage
 
-`./portscanner <target_ip_address> <number_of_attempts> `
+`./n00bscanner <target_ip_address> <number_of_attempts> `
 
 ## Example
 
-`./portscanner 127.0.0.1 1`
+`./n00bscanner 127.0.0.1 1`
 
 ### Output
 

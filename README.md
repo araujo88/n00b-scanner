@@ -1,67 +1,44 @@
 # n00b-scanner
 
-A simple port scanner written in C++ using UNIX websockets API
-
-## Overview
-
-This repository contains a multi-threaded port scanner written in C. The scanner sends TCP SYN packets to a range of ports on a specified target IP address and listens for responses to determine if the ports are open, closed, or filtered. It is designed for educational and testing purposes to understand network programming and port scanning mechanics.
-
-## Features
-
-- Sends TCP SYN packets to a user-defined range of ports.
-- Multi-threaded implementation with separate threads for scanning and response listening.
-- Customizable target IP address and port range.
-- Detection of open, closed, and filtered ports.
+This repository contains a simple port scanner written in Go (Golang). It's designed to scan a range of TCP ports on a specified IP address to check for open ports.
 
 ## Prerequisites
 
-- GCC (GNU Compiler Collection) or any standard C compiler.
-- A Unix-like environment (Linux, BSD, macOS) with standard libraries.
-- Root privileges for raw socket operations.
+To run this port scanner, you need to have Go installed on your system. You can download and install Go from [the official Go website](https://golang.org/dl/).
 
 ## Installation
 
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/multi-threaded-port-scanner.git
-cd multi-threaded-port-scanner
+git clone https://github.com/araujo88/n00b-scanner.git
+cd n00b-scanner
 ```
 
 ## Usage
 
-To compile the program:
+The port scanner can be executed directly through the Go command:
 
 ```bash
-make clean
-make
+go run main.go
 ```
 
-To run the scanner (requires root privileges):
+By default, the scanner is set to scan ports 80 to 100 on the IP `127.0.0.1` (localhost). You can modify the `main.go` file to scan different ports or a different IP address.
 
-```bash
-sudo ./port_scanner <Target-IP> <Payload> <Start-Port> <End-Port>
-```
+## Features
 
-- `<Target-IP>`: IP address of the target machine.
-- `<Payload>`: A string payload to send.
-- `<Start-Port>`: Starting port number of the scan range.
-- `<End-Port>`: Ending port number of the scan range.
-
-Example:
-
-```bash
-sudo ./port_scanner 192.168.1.1 "Hello" 80 100
-```
-
-## Disclaimer
-
-This tool is for educational and testing purposes only. Unauthorized scanning and penetration testing are illegal and unethical. Ensure you have explicit permission to scan the network and systems.
+- Simple and fast port scanning.
+- Concurrent scanning with Go's goroutines.
+- Scans a range of ports on a specified IP address.
 
 ## Contributing
 
-Contributions to this project are welcome. Please ensure you adhere to the coding standards and include proper documentation with your pull requests.
+Contributions to this project are welcome! Feel free to fork the repository and submit pull requests.
 
 ## License
 
-This project is licensed under the [LICENSE](LICENSE).
+This project is licensed under the GPL License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+Port scanning can be perceived as a hostile activity by network administrators. This tool is intended for educational purposes only. Always have explicit permission before scanning networks that you do not own or operate.

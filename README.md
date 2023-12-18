@@ -20,7 +20,7 @@ cd n00b-scanner
 The port scanner can be executed directly through the Go command:
 
 ```bash
-go run main.go
+go run .
 ```
 
 By default, the scanner is set to scan ports 80 to 100 on the IP `127.0.0.1` (localhost). You can modify the `main.go` file to scan different ports or a different IP address.
